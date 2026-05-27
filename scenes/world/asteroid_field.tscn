@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bo0jba1qhqtla"]
+
+[ext_resource type="Script" uid="uid://bnepn1x63l4ai" path="res://src/world/asteroid_field.gd" id="1_l1d2i"]
+[ext_resource type="Script" uid="uid://mvrr13yt0ctm" path="res://src/enemies/enemy_spawner.gd" id="2_l1d2i"]
+[ext_resource type="PackedScene" uid="uid://c5r4daxobogia" path="res://scenes/enemies/enemy_base.tscn" id="3_v00rb"]
+[ext_resource type="Script" uid="uid://bkwsa0obdmuvm" path="res://src/enemies/enemy_data.gd" id="4_b45dr"]
+[ext_resource type="Resource" uid="uid://bnasqy5a7ocab" path="res://data/enemies/scout_drone.tres" id="5_1y0rw"]
+
+[node name="AsteroidField" type="Node2D" unique_id=822930341]
+script = ExtResource("1_l1d2i")
+playfield_asteroid_density = 0.02
+enemy_density = 0.325
+asteroid_min_spacing = 8
+horizontal_screens = 20
+vertical_screens = 20
+drift_speed_min = 5.0
+drift_speed_max = 10.0
+drift_update_every_frames = 5
+chunk_size = 25
+world_seed = 1
+global_blur_amount = 2.85
+fog_colors = Array[Color]([Color(0.3, 0.3, 0.5, 1), Color(0.4, 0.4, 0.6, 1), Color(0.6, 0.6, 0.8, 1), Color(0.8, 0.8, 0.9019608, 1)])
+parallax_factors = Array[float]([0.9, 0.8, 0.6, 0.4])
+player_scene_path = "res://scenes/player/player.tscn"
+
+[node name="MicroClutterLayer" type="Node2D" parent="." unique_id=1208413050]
+
+[node name="BlackBackground" type="ColorRect" parent="MicroClutterLayer" unique_id=1100708614]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="DeepSpaceLayer" type="Node2D" parent="." unique_id=1709429324]
+
+[node name="FarNebulaLayer" type="Node2D" parent="." unique_id=152866447]
+
+[node name="MidFieldLayer" type="Node2D" parent="." unique_id=1747144672]
+
+[node name="NearFieldLayer" type="Node2D" parent="." unique_id=284177045]
+
+[node name="BlurLayer" type="CanvasLayer" parent="." unique_id=2087544593]
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="BlurLayer" unique_id=258125847]
+copy_mode = 2
+
+[node name="BlurOverlay" type="ColorRect" parent="BlurLayer" unique_id=1130019583]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="PlayfieldLayer" type="CanvasLayer" parent="." unique_id=1847889640]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="WorldContainer" type="Node2D" parent="PlayfieldLayer" unique_id=1195810946]
+
+[node name="Markers" type="Node2D" parent="PlayfieldLayer" unique_id=1736107065]
+
+[node name="EnemySpawner" type="Node2D" parent="PlayfieldLayer" unique_id=1132011729]
+script = ExtResource("2_l1d2i")
+enemy_scene = ExtResource("3_v00rb")
+enemy_datas = Array[ExtResource("4_b45dr")]([ExtResource("5_1y0rw")])
+
+[node name="DarknessLayer" type="CanvasLayer" parent="." unique_id=791147912]
+layer = 3
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="DarknessLayer" unique_id=1525138415]
+copy_mode = 2
+
+[node name="DarknessOverlay" type="ColorRect" parent="DarknessLayer" unique_id=535731337]
+offset_right = 1920.0
+offset_bottom = 1080.0

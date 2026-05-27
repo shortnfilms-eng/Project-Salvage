@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bf4vgwge476f7"]
+
+[ext_resource type="Script" uid="uid://dnh08njmh87mi" path="res://src/player/bullet.gd" id="1_j5eos"]
+[ext_resource type="Texture2D" uid="uid://cgihdif0g1ifl" path="res://assets/player/bullet/bullet.png" id="2_j5eos"]
+
+[node name="Bullet" type="Area2D" unique_id=669126260]
+collision_mask = 15
+script = ExtResource("1_j5eos")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=593971827]
+modulate = Color(5.0615087, 5.0615087, 5.0615087, 1)
+rotation = 1.5707964
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("2_j5eos")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1536463984]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

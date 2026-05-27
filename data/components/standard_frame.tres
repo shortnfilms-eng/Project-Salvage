@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FrameData" format=3 uid="uid://bh3ekdo5o26pw"]
+
+[ext_resource type="PackedScene" uid="uid://7v81pigr4oyj" path="res://assets/ships/frames/standard_frame.tscn" id="1_ggvyb"]
+[ext_resource type="Script" uid="uid://ierhi005ul7v" path="res://src/components/frame_data.gd" id="1_stkem"]
+
+[resource]
+script = ExtResource("1_stkem")
+scene = ExtResource("1_ggvyb")
+metadata/_custom_type_script = "uid://ierhi005ul7v"

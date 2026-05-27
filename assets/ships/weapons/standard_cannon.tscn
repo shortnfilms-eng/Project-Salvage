@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://5rd7qwdmwnck"]
+
+[ext_resource type="Script" uid="uid://binvr2bfs1hq0" path="res://src/player/weapon.gd" id="1_wv4cu"]
+[ext_resource type="Resource" uid="uid://dtor0p367r1eu" path="res://data/components/standard_cannon.tres" id="2_y2try"]
+[ext_resource type="Texture2D" uid="uid://cckekta1jk1ot" path="res://assets/player/weapon/right_arm.png" id="3_4te7h"]
+[ext_resource type="Texture2D" uid="uid://cr8vryhj2pmjw" path="res://assets/player/shoot_flash/light.png" id="4_y2try"]
+[ext_resource type="Texture2D" uid="uid://b2av2i5scqprs" path="res://assets/player/shoot_flash/light_2d.png" id="5_4te7h"]
+
+[node name="Weapon" type="Node2D" unique_id=1672915495 node_paths=PackedStringArray("muzzle_marker")]
+script = ExtResource("1_wv4cu")
+weapon_data = ExtResource("2_y2try")
+muzzle_marker = NodePath("Muzzle")
+muzzle_light_energy = 1.0
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1468708919]
+position = Vector2(0, -30)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005558279]
+z_index = 4
+position = Vector2(0, -7.6293945e-06)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_4te7h")
+offset = Vector2(0, -16.37)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="." unique_id=710336358]
+visible = false
+z_index = 4
+position = Vector2(1, -41)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_y2try")
+
+[node name="MuzzleLight" type="PointLight2D" parent="." unique_id=1850073115]
+position = Vector2(0, -30)
+energy = 0.0
+texture = ExtResource("5_4te7h")

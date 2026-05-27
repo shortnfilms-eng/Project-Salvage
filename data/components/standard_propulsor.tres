@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PropulsorData" format=3 uid="uid://b4vkhrnr8ibni"]
+
+[ext_resource type="PackedScene" uid="uid://436ww580o4pb" path="res://assets/ships/propulsors/standard_propulsor.tscn" id="1_wkvej"]
+[ext_resource type="Script" uid="uid://p2ysgtdaadgq" path="res://src/components/propulsor_data.gd" id="1_xoqsu"]
+
+[resource]
+script = ExtResource("1_xoqsu")
+scene = ExtResource("1_wkvej")
+engine_min_scale = 0.5
+engine_max_scale = 1.0
+metadata/_custom_type_script = "uid://p2ysgtdaadgq"

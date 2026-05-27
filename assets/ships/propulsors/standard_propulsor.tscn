@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://436ww580o4pb"]
+
+[ext_resource type="Texture2D" uid="uid://ct6pimvws7q8x" path="res://assets/player/body/propulsion.png" id="1_br5xe"]
+[ext_resource type="Texture2D" uid="uid://cmmne322tyap7" path="res://assets/player/fire/propulsion.png" id="2_64c5w"]
+[ext_resource type="Shader" uid="uid://d4etm20ebmn71" path="res://shaders/fire_shader.gdshader" id="2_wr3gt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nsjx"]
+shader = ExtResource("2_wr3gt")
+shader_parameter/strength = 0.03
+shader_parameter/swap_axes = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_64c5w"]
+shader = ExtResource("2_wr3gt")
+shader_parameter/strength = 0.03
+shader_parameter/swap_axes = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr3gt"]
+shader = ExtResource("2_wr3gt")
+shader_parameter/strength = 0.03
+shader_parameter/swap_axes = true
+
+[node name="StandardPropulsor" type="Node2D" unique_id=744457044]
+
+[node name="BodySprite" type="Sprite2D" parent="." unique_id=378700090]
+z_index = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_br5xe")
+
+[node name="EngineFlame1" type="Sprite2D" parent="." unique_id=642108180]
+z_index = 1
+material = SubResource("ShaderMaterial_1nsjx")
+position = Vector2(-28.99999, 13.999999)
+rotation = -1.985805
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("2_64c5w")
+offset = Vector2(0, -42.565)
+
+[node name="EngineFlame2" type="Sprite2D" parent="." unique_id=815257465]
+z_index = 1
+material = SubResource("ShaderMaterial_64c5w")
+position = Vector2(0, 31.999998)
+rotation = 3.1415925
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_64c5w")
+offset = Vector2(0, -42.565)
+
+[node name="EngineFlame3" type="Sprite2D" parent="." unique_id=1996043838]
+z_index = 1
+material = SubResource("ShaderMaterial_wr3gt")
+position = Vector2(29, 14)
+rotation = 2.0943952
+texture = ExtResource("2_64c5w")
+offset = Vector2(0, -42.565)

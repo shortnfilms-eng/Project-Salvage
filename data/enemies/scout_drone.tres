@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bnasqy5a7ocab"]
+
+[ext_resource type="Script" uid="uid://bkwsa0obdmuvm" path="res://src/enemies/enemy_data.gd" id="1_jr4mc"]
+[ext_resource type="Resource" uid="uid://bh3ekdo5o26pw" path="res://data/components/standard_frame.tres" id="1_wbkax"]
+[ext_resource type="Resource" uid="uid://b4vkhrnr8ibni" path="res://data/components/standard_propulsor.tres" id="2_qg5vl"]
+[ext_resource type="Resource" uid="uid://dtor0p367r1eu" path="res://data/components/standard_cannon.tres" id="4_et22o"]
+
+[resource]
+script = ExtResource("1_jr4mc")
+frame = ExtResource("1_wbkax")
+weapon_right = ExtResource("4_et22o")
+propulsor = ExtResource("2_qg5vl")
+metadata/_custom_type_script = "uid://bkwsa0obdmuvm"

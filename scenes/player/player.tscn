@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dixb3coq54nqe"]
+
+[ext_resource type="Script" uid="uid://delqikk2ampi4" path="res://src/player/player.gd" id="1_onrkg"]
+[ext_resource type="Resource" uid="uid://b4vkhrnr8ibni" path="res://data/components/standard_propulsor.tres" id="2_0owmy"]
+[ext_resource type="PackedScene" uid="uid://dokr8nve77ba6" path="res://src/player/hook.tscn" id="3_lvxji"]
+[ext_resource type="Resource" uid="uid://bh3ekdo5o26pw" path="res://data/components/standard_frame.tres" id="3_qek5x"]
+[ext_resource type="Resource" uid="uid://dtor0p367r1eu" path="res://data/components/standard_cannon.tres" id="4_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://5rd7qwdmwnck" path="res://assets/ships/weapons/standard_cannon.tscn" id="5_0owmy"]
+[ext_resource type="Texture2D" uid="uid://copc0wdjobvb7" path="res://assets/player/chasis/chasis_1.png" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://2kcykpd6s7fu" path="res://cable.png" id="6_qek5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
+size = Vector2(40, 50)
+
+[node name="Player" type="CharacterBody2D" unique_id=1539374537 groups=["player"]]
+collision_mask = 14
+script = ExtResource("1_onrkg")
+propulsor_data = ExtResource("2_0owmy")
+frame_data = ExtResource("3_qek5x")
+weapon_right = ExtResource("4_5gtgg")
+weapon_left = ExtResource("4_5gtgg")
+weapon_scene = ExtResource("5_0owmy")
+rope_texture = ExtResource("6_qek5x")
+hook_max_distance = 270.0
+tow_leash_length = 300.0
+rope_slack_length = 160.0
+rope_vertices = 30
+towed_deceleration = 0.2
+hook_scene = ExtResource("3_lvxji")
+spotlight_radius_x = 800.0
+spotlight_radius_y = 620.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668315794]
+shape = SubResource("RectangleShape2D_sh265")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=299862068]
+position = Vector2(-2, 7)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="PropulsorMount" type="Marker2D" parent="." unique_id=298171235]
+
+[node name="FrameMount" type="Marker2D" parent="." unique_id=1342983117]
+
+[node name="HookMuzzle" type="Marker2D" parent="." unique_id=2023411977]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="HookFrame" type="Sprite2D" parent="." unique_id=1027715613]
+z_index = 4
+position = Vector2(0, -1.1368684e-13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_sweqy")
+offset = Vector2(0, -26.785)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bamf171ud31h1"]
+
+[ext_resource type="Script" uid="uid://v5hrmji4675c" path="res://scenes/ui/hud.gd" id="1_0mwgc"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1380889388]
+layer = 5
+follow_viewport_enabled = true
+script = ExtResource("1_0mwgc")
+
+[node name="ScreenFlash" type="ColorRect" parent="." unique_id=1876920530]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=85261203]
+offset_right = 200.0
+offset_bottom = 200.0

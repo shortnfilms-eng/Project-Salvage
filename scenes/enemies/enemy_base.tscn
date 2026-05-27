@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c5r4daxobogia"]
+
+[ext_resource type="Script" uid="uid://bcpi0thm5cuw0" path="res://src/enemies/enemy.gd" id="1_satqt"]
+[ext_resource type="Resource" uid="uid://bnasqy5a7ocab" path="res://data/enemies/scout_drone.tres" id="2_satqt"]
+[ext_resource type="PackedScene" uid="uid://5rd7qwdmwnck" path="res://assets/ships/weapons/standard_cannon.tscn" id="3_qa0nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+size = Vector2(40, 60)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=662141972 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_satqt")
+enemy_data = ExtResource("2_satqt")
+weapon_scene = ExtResource("3_qa0nx")
+separation_radius = 250.0
+separation_strength = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=651368702]
+shape = SubResource("RectangleShape2D_7xaro")
+
+[node name="EnemyBrain" type="Node" parent="." unique_id=2105896180]
+
+[node name="PropulsorMount" type="Marker2D" parent="." unique_id=1333448913]
+
+[node name="FrameMount" type="Marker2D" parent="." unique_id=1130239948]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=555442740]
+rect = Rect2(-80, -70, 160, 140)
